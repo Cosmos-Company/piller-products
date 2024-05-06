@@ -18,5 +18,5 @@ const Select = forwardRef<
     </div>
   );
 });
-
+Select.displayName = "Select";
 export default Select;

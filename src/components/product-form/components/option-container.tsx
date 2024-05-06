@@ -5,7 +5,7 @@ export default function OptionContainer({
   title,
   id,
 }: {
-  children: ReactNode;
+  children?: ReactNode;
   title: string;
   id: string;
 }) {

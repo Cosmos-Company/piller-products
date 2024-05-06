@@ -1,5 +1,6 @@
 "use client";
 import HStack from "@/components/layouts/h-stack";
+import ProductDescription from "@/components/product-description";
 import ProductForm from "@/components/product-form";
 import ProductFooter from "@/components/product-form/components/product-footer";
 import ProductPhotoCard from "@/components/product-form/components/product-photo-card";
@@ -13,7 +14,7 @@ export default function StationCharger() {
     },
     { email: "" }
   );
-  console.log(stationCharger.photos[0].url);
+
   return (
     <ProductForm defaultValues={{ defaultValues, color: "#ebebeb" }}>
       <HStack>
@@ -27,6 +28,9 @@ export default function StationCharger() {
         />
       </HStack>
       <ProductFooter />
+      <div className="flex justify-center">
+        <ProductDescription info={stationCharger.info} className="" />
+      </div>
     </ProductForm>
   );
 }

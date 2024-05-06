@@ -1,8 +1,8 @@
 "use client";
-import React, { ReactNode } from "react";
-import ProductFooter from "./components/product-footer";
-import { FormProvider, useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
+import { NextRequest } from "next/server";
+import { ReactNode } from "react";
+import { FormProvider, useForm } from "react-hook-form";
 
 export default function ProductForm({
   children,
@@ -15,9 +15,14 @@ export default function ProductForm({
     defaultValues,
   });
 
-  const onSubmit = (data: any) => {
-    alert("Form submitted");
-    console.log(data);
+  const onSubmit = async (req: NextRequest, data: any) => {
+    delete data.defaultValues;
+    const res = await fetch("/api/mail", {
+      method: "POST",
+      body: JSON.stringify(req),
+    });
+    alert("Teklif isteğiniz alınmıştır. En kısa sürede dönüş yapılacaktır.");
+    console.log(res);
   };
   return (
     <>
