@@ -16,6 +16,7 @@ export default function ProductForm({
   });
 
   const onSubmit = (data: any) => {
+    alert("Form submitted");
     console.log(data);
   };
   return (

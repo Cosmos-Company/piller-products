@@ -1,18 +1,24 @@
 "use client";
 import { cn } from "@/utils/class-helper";
-import React, { forwardRef, useId, useState } from "react";
+import { isContrastColorWhite } from "@/utils/color-helper";
+import React, { forwardRef, useEffect, useId, useState } from "react";
 import { VscSymbolColor } from "react-icons/vsc";
 
 const Input = forwardRef<
   HTMLInputElement,
   React.HTMLProps<HTMLInputElement> & {
     className?: string;
+    value: string;
   }
->(({ className, ...rest }, ref) => {
+>(({ className, value, ...rest }, ref) => {
   const id = useId();
-  const [color, setColor] = useState<string>(
-    (rest.value as string) || "#ebebeb"
-  );
+  const [color, setColor] = useState<string>((value as string) || "#ebebeb");
+
+  useEffect(() => {
+    console.log("rest.value", value);
+    setColor((value as string) ?? "");
+  }, [value]);
+
   if (rest.type === "color") {
     return (
       <>
@@ -33,12 +39,23 @@ const Input = forwardRef<
           )}
         >
           <input
-            className="w-full h-full bg-transparent outline-none"
+            className="w-full h-full max-h-[60px] bg-transparent outline-none"
             type="text"
             value={color}
+            placeholder="Renk Seçiniz"
             onChange={(e) => setColor(e.target.value)}
           />
-          <label htmlFor={id}>
+          {color}
+          <label
+            htmlFor={id}
+            style={{
+              backgroundColor: color,
+            }}
+            className={cn(
+              "rounded-full p-1 border border-gray-900",
+              isContrastColorWhite(color) ? "text-white" : "text-black"
+            )}
+          >
             <VscSymbolColor />
           </label>
         </div>

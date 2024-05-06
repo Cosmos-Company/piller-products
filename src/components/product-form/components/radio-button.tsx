@@ -1,22 +1,33 @@
 "use client";
+import { cn } from "@/utils/class-helper";
 import clsx from "clsx";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useId, useRef, useState } from "react";
 import { useFormContext } from "react-hook-form";
 
 export default function RadioButton({
-  id,
   name,
   value,
   label,
   isCircle,
+  isBig,
+  dependingValue,
+  description,
 }: {
-  id: string;
   name: string;
   value: string;
   label: string;
-  isCircle: boolean;
+  isCircle?: boolean;
+  isBig?: boolean;
+  dependingValue?: string;
+  description?: string;
 }) {
   const form = useFormContext();
+  const id = useId();
+
+  useEffect(() => {
+    if (!dependingValue) return;
+    form.setValue(name, null);
+  }, [dependingValue]);
 
   const [checked, setChecked] = useState(false);
   const watch = form.watch(name);
@@ -38,18 +49,31 @@ export default function RadioButton({
         type="radio"
         id={id}
         value={value}
-        required
         {...form.register(name)}
       />
       <label
         htmlFor={id}
         className={clsx(
-          "cursor-pointer border flex justify-center items-center  border-solid ",
-          isCircle ? " w-5 h-5 p-6 rounded-full" : "rounded-[40px] p-4 px-5",
+          "cursor-pointer border flex flex-col justify-center items-center  border-solid ",
+          isCircle
+            ? " w-5 h-5 p-6 rounded-full"
+            : isBig
+            ? "w-full rounded-[20px] p-2 px-5"
+            : "rounded-[40px] p-4 px-5",
           checked ? "bg-[#2a50fe] text-white border-[#2a50fe]" : "border-black"
         )}
       >
-        {label}
+        <p>{label}</p>
+        {isBig && (
+          <p
+            className={cn(
+              "text-sm ",
+              checked ? "text-gray-300" : "text-gray-600"
+            )}
+          >
+            {description}
+          </p>
+        )}
       </label>
     </>
   );

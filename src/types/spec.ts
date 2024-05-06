@@ -4,8 +4,11 @@ export type Spec = {
   name: string;
   subType?: string;
   placeholder?: string;
+  dependsOn?: string;
   options?: {
     label: string;
     value: string;
+    description?: string;
+    dependsOnValue?: string;
   }[];
 };

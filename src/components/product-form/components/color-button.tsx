@@ -17,12 +17,12 @@ export default function ColorButton({
   const watch = form.watch(name);
 
   useEffect(() => {
-    console.log(watch);
     if (watch === backgroundColor) {
       setChecked(true);
     } else {
       setChecked(false);
     }
+    form.setValue("customColor", null);
   }, [watch]);
   return (
     <>
