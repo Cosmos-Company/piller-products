@@ -93,7 +93,7 @@ const photos = [
 export const evCharger = {
   title: "EV Charger",
   photos: photos,
-  description: info,
+  info: info,
   specs: [
     {
       type: "radio",

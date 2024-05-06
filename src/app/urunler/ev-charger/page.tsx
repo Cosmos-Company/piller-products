@@ -1,5 +1,6 @@
 "use client";
 import HStack from "@/components/layouts/h-stack";
+import ProductDescription from "@/components/product-description";
 import ProductForm from "@/components/product-form";
 import ProductFooter from "@/components/product-form/components/product-footer";
 import ProductPhotoCard from "@/components/product-form/components/product-photo-card";
@@ -25,6 +26,9 @@ export default function EVChargerPage() {
         />
       </HStack>
       <ProductFooter />
+      <div className="flex justify-center">
+        <ProductDescription info={evCharger.info} className="" />
+      </div>
     </ProductForm>
   );
 }
