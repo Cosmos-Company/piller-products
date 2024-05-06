@@ -2,7 +2,7 @@ export const products = [
   {
     photo: "https://piller.com.tr/wp-content/uploads/2024/05/istasyon1-2-2.png",
     name: "İstasyon",
-    slug: "istasyon",
+    slug: "station-charger",
   },
   {
     photo:

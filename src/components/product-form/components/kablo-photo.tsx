@@ -7,24 +7,24 @@ export default function KabloPhoto() {
   const [hoverIkinci, setHoverIkinci] = useState(false);
   useEffect(() => {
     document
-      .getElementById("ilk-uc")
+      .getElementById("ikinci-uc")
       ?.addEventListener("mouseover", function () {
         setHoverIlk(true);
         setHoverIkinci(false);
       });
     document
-      .getElementById("ilk-uc")
+      .getElementById("ikinci-uc")
       ?.addEventListener("mouseout", function () {
         setHoverIlk(false);
       });
     document
-      .getElementById("ikinci-uc")
+      .getElementById("ilk-uc")
       ?.addEventListener("mouseover", function () {
         setHoverIkinci(true);
         setHoverIlk(false);
       });
     document
-      .getElementById("ikinci-uc")
+      .getElementById("ilk-uc")
       ?.addEventListener("mouseout", function () {
         setHoverIkinci(false);
       });

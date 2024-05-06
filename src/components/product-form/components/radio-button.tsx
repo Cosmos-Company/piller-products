@@ -3,6 +3,7 @@ import { cn } from "@/utils/class-helper";
 import clsx from "clsx";
 import React, { useEffect, useId, useRef, useState } from "react";
 import { useFormContext } from "react-hook-form";
+import { IoMdInformationCircle } from "react-icons/io";
 
 export default function RadioButton({
   name,
@@ -58,21 +59,38 @@ export default function RadioButton({
           isCircle
             ? " w-5 h-5 p-6 rounded-full"
             : isBig
-            ? "w-full rounded-[20px] p-2 px-5"
+            ? "w-[45%] rounded-[20px] "
             : "rounded-[40px] p-4 px-5",
-          checked ? "bg-[#2a50fe] text-white border-[#2a50fe]" : "border-black"
+          checked
+            ? isBig
+              ? "border-primary border-2"
+              : "bg-[#2a50fe] text-white border-[#2a50fe]"
+            : "border-black"
         )}
       >
-        <p>{label}</p>
-        {isBig && (
-          <p
-            className={cn(
-              "text-sm ",
-              checked ? "text-gray-300" : "text-gray-600"
-            )}
-          >
-            {description}
-          </p>
+        {isBig ? (
+          <div className="relative">
+            <img
+              src={"/" + value + "-nobg.png"}
+              alt={value}
+              className="w-full min-h-10 object-cover rounded-[20px]"
+            />
+            <div className="absolute group right-2 top-2">
+              <IoMdInformationCircle className="w-6 h-6 z-20" />
+              <div className="opacity-0 hidden group-hover:opacity-100 group-hover:flex transition-all rounded-md bg-white absolute z-10 -left-1 -top-1 min-w-[300px] w-full min-h-24 p-8  flex-col">
+                <h1 className="font-bold">Trifaz Bilmemne</h1>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                  cursus tellus eu venenatis auctor. In volutpat porta
+                  elementum. Phasellus non lorem eget metus sodales pretium.
+                  Quisque ultrices velit porttitor sem eleifend facilisis. Nunc
+                  fermentum metus vel
+                </p>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <p>{label}</p>
         )}
       </label>
     </>

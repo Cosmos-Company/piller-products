@@ -29,8 +29,8 @@ export const kablo = {
       title: "Birinci ucu seçiniz?",
       subType: "big",
       options: [
-        { value: "Kırmızı", label: "Kırmızı" },
-        { value: "Mavi", label: "Mavi" },
+        { value: "kirmizi", label: "Kırmızı" },
+        { value: "mavi", label: "Mavi" },
       ],
     },
     {
@@ -41,13 +41,13 @@ export const kablo = {
       dependsOn: "ilk-uc",
       options: [
         {
-          value: "Mavi",
+          value: "mavi",
           label: "Mavi",
-          dependsOnValue: "Kırmızı",
+          dependsOnValue: "kirmizi",
           description: "Trifaz deger",
         },
-        { value: "Siyah", label: "Siyah", dependsOnValue: "Kırmızı" },
-        { value: "Siyah", label: "Siyah", dependsOnValue: "Mavi" },
+        { value: "siyah", label: "Siyah", dependsOnValue: "kirmizi" },
+        { value: "siyah", label: "Siyah", dependsOnValue: "mavi" },
       ],
     },
   ],
