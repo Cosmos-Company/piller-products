@@ -11,24 +11,30 @@ import React, { useState } from "react";
 export default function EVChargerPage() {
   const defaultValues = evCharger.specs.reduce(
     (acc, spec) => {
-      return { ...acc, [spec.name]: "" };
+      return { ...acc, [spec.name]: spec.default || "" };
     },
     { email: "" }
   );
 
   return (
-    <ProductForm defaultValues={{ defaultValues, color: "#ebebeb" }}>
-      <HStack>
-        <ProductPhotoCard photos={evCharger.photos} alt="ev charger" />
-        <ProductSpecifications
-          title={evCharger.title}
-          specs={evCharger.specs}
-        />
-      </HStack>
-      <ProductFooter />
+    <>
+      <ProductForm defaultValues={{ defaultValues, color: "#ebebeb" }}>
+        <HStack className="justify-center gap-[120px]">
+          <div className="w-1/2 flex justify-end items-center ">
+            <ProductPhotoCard photos={evCharger.photos} alt="ev charger" />
+          </div>
+          <div className="w-1/2">
+            <ProductSpecifications
+              title={evCharger.title}
+              specs={evCharger.specs}
+            />
+          </div>
+        </HStack>
+      </ProductForm>
+
       <div className="flex justify-center">
         <ProductDescription info={evCharger.info} className="" />
       </div>
-    </ProductForm>
+    </>
   );
 }

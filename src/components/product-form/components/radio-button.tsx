@@ -57,10 +57,10 @@ export default function RadioButton({
         className={clsx(
           "cursor-pointer border flex flex-col justify-center items-center  border-solid ",
           isCircle
-            ? " w-5 h-5 p-6 rounded-full"
+            ? " w-4 h-4 p-5 rounded-full"
             : isBig
             ? "w-[45%] rounded-[20px] "
-            : "rounded-[40px] p-4 px-5",
+            : "rounded-[40px] py-2 px-5",
           checked
             ? isBig
               ? "border-primary border-2"

@@ -10,7 +10,7 @@ import { stationCharger } from "@/data/station-charger";
 export default function StationCharger() {
   const defaultValues = stationCharger.specs.reduce(
     (acc, spec) => {
-      return { ...acc, [spec.name]: "" };
+      return { ...acc, [spec.name]: spec.default || "" };
     },
     { email: "" }
   );

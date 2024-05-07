@@ -5,7 +5,7 @@ import React from "react";
 
 export default function ProducstPage() {
   return (
-    <div className="flex justify-center">
+    <div className="">
       <ProductList products={products} />
     </div>
   );

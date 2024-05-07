@@ -34,7 +34,7 @@ const Input = forwardRef<
         />
         <div
           className={cn(
-            "relative flex items-center w-[230px] max-h-[60px] overflow-hidden focus-within:outline focus-within:outline-primary bg-transparent p-2.5 rounded-[40px]  border-solid border-black border",
+            "relative flex items-center w-[230px] max-h-[60px] overflow-hidden focus-within:outline focus-within:outline-primary bg-transparent p-2.5 py-2 rounded-[40px]  border-solid border-black border",
             className
           )}
         >
@@ -45,7 +45,7 @@ const Input = forwardRef<
             placeholder="Renk Seçiniz"
             onChange={(e) => setColor(e.target.value)}
           />
-          {color}
+
           <label
             htmlFor={id}
             style={{
@@ -66,7 +66,7 @@ const Input = forwardRef<
     <input
       type="text"
       className={cn(
-        " w-[230px] max-h-[60px] overflow-hidden  bg-transparent p-2.5 rounded-[40px]  border-solid border-black border",
+        " w-[230px] max-h-[60px] overflow-hidden  bg-transparent p-2.5 py-2 rounded-[40px]  border-solid border-black border",
         className
       )}
       {...rest}

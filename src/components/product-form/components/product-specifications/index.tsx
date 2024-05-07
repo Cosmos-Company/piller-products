@@ -9,6 +9,7 @@ import CarModelSelect from "../car-model-select";
 import TextOption from "../text-option";
 import { useFormContext } from "react-hook-form";
 import CustomColor from "../custom-color";
+import ProductFooter from "../product-footer";
 
 export default function ProductSpecifications({
   title,
@@ -90,22 +91,23 @@ export default function ProductSpecifications({
   };
 
   return (
-    <div className="flex flex-col gap-5 w-full">
+    <div className="flex flex-col gap-5 w-auto ">
       <header>
         <h3 className="text-3xl">{title}</h3>
       </header>
 
-      <section className="flex flex-col gap-2.5">
+      <section className="flex flex-col gap-8">
         {specs.map((spec) => (
           <OptionContainer key={spec.name} title={spec.title} id={spec.name}>
             {form.formState.errors[spec.name] && (
-              <span className="text-red-500">
+              <span className="">
                 {form.formState.errors[spec.name]?.message?.toString()}
               </span>
             )}
             {createSpec(spec)}
           </OptionContainer>
         ))}
+        <ProductFooter />
       </section>
     </div>
   );

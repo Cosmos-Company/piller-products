@@ -15,24 +15,10 @@ export default function ProductForm({
     defaultValues,
   });
 
-  const onSubmit = async (req: NextRequest, data: any) => {
-    delete data.defaultValues;
-    const res = await fetch("/api/mail", {
-      method: "POST",
-      body: JSON.stringify(req),
-    });
-    alert("Teklif isteğiniz alınmıştır. En kısa sürede dönüş yapılacaktır.");
-    console.log(res);
-  };
   return (
     <>
       <FormProvider {...form}>
-        <form
-          className="flex flex-col gap-10"
-          onSubmit={form.handleSubmit(onSubmit)}
-        >
-          {children}
-        </form>
+        <form className="flex flex-col gap-10 h-screen  py-24">{children}</form>
       </FormProvider>
       <DevTool control={form.control} /> {/* set up the dev tool */}
     </>

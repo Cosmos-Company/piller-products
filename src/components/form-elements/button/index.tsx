@@ -10,7 +10,7 @@ export default function Button({
   return (
     <button
       type="submit"
-      className="border bg-[#2a50fe]  w-[230px] text-[white] cursor-pointer text-xl px-[25px] py-[15px] rounded-[40px] border-solid border-[#2a50fe]    "
+      className="border bg-[#2a50fe]  w-[230px] text-[white] cursor-pointer text-xl px-[25px] py-2 rounded-[40px] border-solid border-[#2a50fe]    "
       {...rest}
     >
       {children}

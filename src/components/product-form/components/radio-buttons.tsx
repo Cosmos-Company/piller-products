@@ -6,9 +6,5 @@ export default function RadioButtons({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <div className="flex flex-row gap-2.5 flex-wrap max-w-[50%]">
-      {children}
-    </div>
-  );
+  return <div className="flex flex-row gap-2.5 flex-wrap ">{children}</div>;
 }

@@ -31,7 +31,7 @@ export default function KabloPhoto() {
   }, []);
 
   return (
-    <div className="w-full flex flex-col gap-[75px] shadow-[0_2.8px_2.2px_rgba(0,0,0,0.034)] bg-[white] h-[580px] px-[115px] py-[100px] rounded-br-[60px]">
+    <div className="w-full flex flex-col gap-[75px]  h-[580px] px-[115px] py-[100px] rounded-br-[60px]">
       <div className="relative h-full overflow-hidden mx-auto">
         <img
           src={"/kablo.png"}

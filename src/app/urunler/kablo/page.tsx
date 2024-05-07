@@ -10,7 +10,7 @@ import { kablo } from "@/data/kablo";
 export default function Kablo() {
   const defaultValues = kablo.specs.reduce(
     (acc, spec) => {
-      return { ...acc, [spec.name]: "" };
+      return { ...acc, [spec.name]: spec.default || "" };
     },
     { email: "" }
   );

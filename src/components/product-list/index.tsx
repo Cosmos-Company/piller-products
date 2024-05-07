@@ -4,9 +4,13 @@ import ProductCard from "../product-card";
 
 export default function ProductList({ products }: { products: Product[] }) {
   return (
-    <div className="flex gap-5 flex-wrap">
+    <div className="container px-36 gap-5 grid grid-cols-2 grid-rows-2">
       {products.map((product) => (
-        <ProductCard key={product.slug} {...product} />
+        <ProductCard
+          small={product.small ? true : false}
+          key={product.slug}
+          {...product}
+        />
       ))}
     </div>
   );

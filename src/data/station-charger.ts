@@ -35,8 +35,8 @@ export const stationCharger = {
       type: "radio",
       name: "model",
       title: "Size en uygun olan <b>model</b> hangisi?",
+      default: "RFID + Kilit Aktivatörü",
       options: [
-        { value: "Tak Çalıştır", label: "Tak Çalıştır" },
         { value: "RFID + Kilit Aktivatörü", label: "RFID + Kilit Aktivatörü" },
       ],
     },

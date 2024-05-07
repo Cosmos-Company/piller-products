@@ -1,11 +1,13 @@
 const info = {
-  description: "Piller Home Charger, bireysel kullanıma yönelik olarak tasarlanmış, AC Tip2 şarj soketine sahip şarj ünitesidir. Ev, iş yerleri, otoparklar, oteller vb. iç ve dış mekanlarda kullanıma uygun şekilde tasarlanmıştır.",
-  image: "https://piller.com.tr/wp-content/uploads/2024/05/teknik-bilgi-chart-1-768x641.png",
+  description:
+    "Piller Home Charger, bireysel kullanıma yönelik olarak tasarlanmış, AC Tip2 şarj soketine sahip şarj ünitesidir. Ev, iş yerleri, otoparklar, oteller vb. iç ve dış mekanlarda kullanıma uygun şekilde tasarlanmıştır.",
+  image:
+    "https://piller.com.tr/wp-content/uploads/2024/05/teknik-bilgi-chart-1-768x641.png",
 };
 
 const photos = [
   {
-    url: "https://piller.com.tr/wp-content/uploads/2024/04/beyaz-scaled.jpg",
+    url: "/ev-charger/piller4.png",
     alt: "ev charger 1",
     color: "#ebebeb",
     order: 1,
@@ -23,7 +25,7 @@ const photos = [
     order: 2,
   },
   {
-    url: "https://piller.com.tr/wp-content/uploads/2024/04/kirmizi-scaled.jpg",
+    url: "/ev-charger/piller4.png",
     alt: "ev charger 4",
     color: "#993336",
     order: 1,

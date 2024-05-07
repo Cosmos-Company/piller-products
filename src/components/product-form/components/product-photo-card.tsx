@@ -42,13 +42,13 @@ export default function ProductPhotoCard({
   }, [customColor]);
 
   return (
-    <div className="w-full flex flex-col gap-[75px] shadow-[0_2.8px_2.2px_rgba(0,0,0,0.034)] bg-[white] h-[580px] px-[115px] py-[100px] rounded-br-[60px]">
-      <div className="h-full overflow-hidden mx-auto">
+    <div className="w-auto flex flex-col gap-[75px] h-[480px] sticky rounded-br-[60px] ">
+      <div className="h-full w-full overflow-hidden ">
         {customColorValue ? (
           <img
             src={"/mock1.png"}
             alt={alt}
-            className="w-full min-w-[300px] h-full object-cover"
+            className="w-full   h-full object-cover"
             style={{
               backgroundColor: customColorValue,
             }}
@@ -57,13 +57,13 @@ export default function ProductPhotoCard({
           <img
             src={filteredPhotos?.[index].url}
             alt={alt}
-            className="w-full min-w-[300px] h-full object-cover"
+            className="w-full   h-full object-contain"
           />
         ) : (
           <img
             src={photos[0].url}
             alt={alt}
-            className="w-full min-w-[300px] h-full object-cover"
+            className="w-full  h-full object-cover"
           />
         )}
       </div>
