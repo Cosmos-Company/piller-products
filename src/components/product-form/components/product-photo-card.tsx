@@ -8,17 +8,19 @@ export default function ProductPhotoCard({
   photos,
   alt,
   hasBackground,
+  filterInputName,
 }: {
   photos: Photo[];
   alt: string;
   hasBackground?: boolean;
+  filterInputName: string;
 }) {
   const form = useFormContext();
-  const selectedColor = form.watch("color");
+  const selectedFilterInput = form.watch(filterInputName);
   const customColor = form.watch("customColor");
   const [customColorValue, setCustomColorValue] = useState<string | null>(null);
   const filteredPhotos = photos.filter(
-    (photo) => photo.color === selectedColor
+    (photo) => photo.group === selectedFilterInput
   );
 
   const [index, setIndex] = useState<number>(0);
@@ -36,7 +38,7 @@ export default function ProductPhotoCard({
   useEffect(() => {
     setIndex(0);
     setCustomColorValue(null);
-  }, [selectedColor]);
+  }, [selectedFilterInput]);
 
   useEffect(() => {
     if (customColor) {
@@ -44,35 +46,32 @@ export default function ProductPhotoCard({
     }
   }, [customColor]);
 
-
   return (
-    <div>
-      <div className={cn(" w-11/12 flex flex-col gap-[0px] sticky rounded-br-[60px] ", hasBackground ? "bg-[#f7f7f7]" : "")}>
-        <div className="h-full rounded-br-[60px] w-full overflow-hidden ">
-          {customColorValue ? (
-            <img
-              src={"/mock1.png"}
-              alt={alt}
-              className="w-full h-full object-cover"
-              style={{
-                backgroundColor: customColorValue,
-              }}
-            />
-          ) : filteredPhotos?.[index] ? (
-            <img
-              src={filteredPhotos?.[index].url}
-              alt={alt}
-              className="w-full   h-full object-contain"
-            />
-          ) : (
-            <img
-              src={photos[0].url}
-              alt={alt}
-              className="w-full  h-full object-cover"
-            />
-          )}
-        </div>
-
+    <div
+      className={cn(
+        "h-full bg-red-500",
+        hasBackground ? "bg-white rounded-br-[60px]" : ""
+      )}
+    >
+      <div className="max-h-fit rounded-br-[60px]  w-full overflow-hidden ">
+        {customColorValue ? (
+          <img
+            src={"/mock1.png"}
+            alt={alt}
+            className="h-full object-cover "
+            style={{
+              backgroundColor: customColorValue,
+            }}
+          />
+        ) : filteredPhotos?.[index] ? (
+          <img
+            src={filteredPhotos?.[index].url}
+            alt={alt}
+            className="h-full object-cover "
+          />
+        ) : (
+          <img src={photos[0].url} alt={alt} className=" h-full object-cover" />
+        )}
       </div>
       <div className="flex gap-2.5 pt-5 justify-center">
         {!customColorValue &&
@@ -88,8 +87,8 @@ export default function ProductPhotoCard({
                     ? "bg-[#2a50fe]"
                     : "bg-[#9fa1a7]"
                   : 0 == photo.order - 1
-                    ? "bg-[#2a50fe]"
-                    : "bg-[#9fa1a7]"
+                  ? "bg-[#2a50fe]"
+                  : "bg-[#9fa1a7]"
               )}
             ></button>
           ))}

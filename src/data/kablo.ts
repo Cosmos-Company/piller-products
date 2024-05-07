@@ -2,7 +2,7 @@ const photos = [
   {
     url: "https://piller.com.tr/wp-content/uploads/2024/04/beyaz-scaled.jpg",
     alt: "ev charger 1",
-    color: "#ebebeb",
+    group: "#ebebeb",
     order: 1,
   },
 ];

@@ -27,9 +27,12 @@ export default function ProductSpecifications({
             <RadioButtons>
               {spec.options?.map((option) => {
                 const dependingValue = form.watch(spec.dependsOn as any);
+                console.log(dependingValue);
                 if (
+                  (dependingValue &&
+                    !Object.keys(option).includes("dependsOnValue")) ||
                   (option.dependsOnValue as string) ===
-                  (dependingValue as any as string)
+                    (dependingValue as any as string)
                 ) {
                   return (
                     <RadioButton
@@ -40,6 +43,7 @@ export default function ProductSpecifications({
                       description={option.description}
                       isCircle={spec.subType === "circle"}
                       isBig={spec.subType === "big"}
+                      defaultValue={spec.default}
                     />
                   );
                 }
@@ -58,6 +62,7 @@ export default function ProductSpecifications({
                 description={option.description}
                 isCircle={spec.subType === "circle"}
                 isBig={spec.subType === "big"}
+                defaultValue={spec.default}
               />
             ))}
           </RadioButtons>
@@ -97,16 +102,31 @@ export default function ProductSpecifications({
       </header>
 
       <section className="flex flex-col gap-8">
-        {specs.map((spec) => (
-          <OptionContainer key={spec.name} title={spec.title} id={spec.name}>
-            {form.formState.errors[spec.name] && (
-              <span className="">
-                {form.formState.errors[spec.name]?.message?.toString()}
-              </span>
-            )}
-            {createSpec(spec)}
-          </OptionContainer>
-        ))}
+        {specs.map((spec) => {
+          const dependingValue = form.watch(spec.dependsOn as any);
+          if (
+            spec.options?.some(
+              (option) =>
+                !option.dependsOnValue ||
+                option.dependsOnValue === dependingValue
+            )
+          ) {
+            return (
+              <OptionContainer
+                key={spec.name}
+                title={spec.title}
+                id={spec.name}
+              >
+                {form.formState.errors[spec.name] && (
+                  <span className="">
+                    {form.formState.errors[spec.name]?.message?.toString()}
+                  </span>
+                )}
+                {createSpec(spec)}
+              </OptionContainer>
+            );
+          }
+        })}
         <ProductFooter />
       </section>
     </div>

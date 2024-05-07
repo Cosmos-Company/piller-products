@@ -1,52 +1,75 @@
 const photos = [
-    {
-        url: "https://piller.com.tr/wp-content/uploads/2024/04/beyaz-scaled.jpg",
-        alt: "ev charger 1",
-        color: "#ebebeb",
-        order: 1,
-    }
+  {
+    url: "/monofaze.png",
+    alt: "monofaze",
+    group: "monofaze",
+    order: 1,
+  },
+  {
+    url: "/trifaze.png",
+    alt: "trifaze",
+    group: "trifaze",
+    order: 1,
+  },
+  {
+    url: "https://piller.com.tr/wp-content/uploads/2024/04/beyaz-scaled.jpg",
+    alt: "ev charger 1",
+    group: "#ebebeb",
+    order: 1,
+  },
+  {
+    url: "https://piller.com.tr/wp-content/uploads/2024/04/beyaz-scaled.jpg",
+    alt: "ev charger 1",
+    group: "#ebebeb",
+    order: 1,
+  },
 ];
 
 export const pano = {
-    title: "Kombinasyon Panosu",
-    photos: photos,
-    specs: [
-        {
-            type: "radio",
-            subType: "model",
-            name: "uzunluk",
-            title: "İhtiyacınıza en uygun <b>trifaz</b> nedir?",
-            options: [
-                { value: "monofaze", label: "Monofaze" },
-                { value: "trifaze", label: "Trifaze" }
-            ],
-        },
-        {
-            type: "radio",
-            name: "evet",
-            title: "Schuko olsun mu?",
-            subType: "model",
-            options: [
-                { value: "yes", label: "Evet" },
-                { value: "no", label: "Hayır" },
-            ],
-        },
-        {
-            type: "radio",
-            name: "hayir",
-            title: "Kaç adet?",
-            subType: "big",
-            dependsOn: "ilk-uc",
-            options: [
-                {
-                    value: "mavi",
-                    label: "Mavi",
-                    dependsOnValue: "kirmizi",
-                    description: "Trifaz deger",
-                },
-                { value: "siyah", label: "Siyah", dependsOnValue: "kirmizi" },
-                { value: "siyah", label: "Siyah", dependsOnValue: "mavi" },
-            ],
-        },
-    ],
+  title: "Kombinasyon Panosu",
+  photos: photos,
+  specs: [
+    {
+      type: "radio",
+      name: "faze",
+      title: "İhtiyacınıza en uygun <b>trifaz</b> nedir?",
+      default: "monofaze",
+      options: [
+        { value: "monofaze", label: "Monofaze" },
+        { value: "trifaze", label: "Trifaze" },
+      ],
+    },
+    {
+      type: "radio",
+      name: "schuko",
+      title: "Schuko olsun mu?",
+      // evet olması halinde max 2 adet eklenebilir
+      subType: "model",
+      options: [
+        { value: "schuko-yes", label: "Evet" },
+        { value: "schuko-no", label: "Hayır" },
+      ],
+    },
+    {
+      type: "radio",
+      name: "schuko-adet",
+      title: "Adet",
+      dependsOn: "schuko", // evet olması halinde max 2 adet eklenebilir
+      subType: "model",
+      options: [
+        { value: "1-adet", label: "1 Adet", dependsOnValue: "schuko-yes" },
+        { value: "2-adet", label: "2 Adet", dependsOnValue: "schuko-yes" },
+      ],
+    },
+    {
+      type: "radio",
+      name: "sigorta",
+      title: "40A Sigorta olsun mu?",
+      subType: "model",
+      options: [
+        { value: "sigorta-yes", label: "Evet" },
+        { value: "sigorta-no", label: "Hayır" },
+      ],
+    },
+  ],
 };

@@ -13,6 +13,7 @@ export default function RadioButton({
   isBig,
   dependingValue,
   description,
+  defaultValue,
 }: {
   name: string;
   value: string;
@@ -21,6 +22,7 @@ export default function RadioButton({
   isBig?: boolean;
   dependingValue?: string;
   description?: string;
+  defaultValue?: string;
 }) {
   const form = useFormContext();
   const id = useId();
@@ -30,7 +32,7 @@ export default function RadioButton({
     form.setValue(name, null);
   }, [dependingValue]);
 
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(defaultValue === value);
   const watch = form.watch(name);
 
   useEffect(() => {
@@ -48,6 +50,7 @@ export default function RadioButton({
             w-0 h-0 opacity-0 absolute
         "
         type="radio"
+        checked={checked}
         id={id}
         value={value}
         {...form.register(name)}

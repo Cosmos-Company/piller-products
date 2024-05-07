@@ -1,6 +1,6 @@
 export type Photo = {
   url: string;
   alt: string;
-  color: string;
+  group: string;
   order: number;
 };

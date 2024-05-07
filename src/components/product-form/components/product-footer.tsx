@@ -36,11 +36,12 @@ export default function ProductFooter() {
             className="fixed z-50 bg-black/60 inset-0 flex justify-center items-center"
           >
             <div
-              className="bg-white rounded-[50px] px-6 py-8 flex flex-col justify-center items-center gap-6"
+              className="bg-white w-1/3 h-[30vh] rounded-[50px] px-6 py-8 flex flex-col justify-around items-center gap-6"
               onClick={(e) => {
                 e.stopPropagation();
               }}
             >
+              <h2 className="text-2xl font-bold">Teklif İsteğini Gönder</h2>
               <TextOption
                 name="email"
                 type="email"
