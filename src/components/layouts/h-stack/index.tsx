@@ -11,7 +11,7 @@ export default function HStack({
   [x: string]: any;
 }) {
   return (
-    <div className={clsx("w-full flex ", className)} {...rest}>
+    <div className={clsx("w-full flex  ", className)} {...rest}>
       {children}
     </div>
   );

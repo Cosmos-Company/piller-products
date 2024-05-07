@@ -7,13 +7,13 @@ const info = {
 
 const photos = [
   {
-    url: "/ev-charger/piller4.png",
+    url: "/pano.jpg",
     alt: "ev charger 1",
     color: "#ebebeb",
     order: 1,
   },
   {
-    url: "https://piller.com.tr/wp-content/uploads/2024/04/hakiyesil-scaled.jpg",
+    url: "/açıkmavi_padding.png",
     alt: "ev charger 2",
     color: "#485e49",
     order: 1,
