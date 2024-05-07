@@ -23,7 +23,7 @@ export default function EVChargerPage() {
           <div className="w-1/2 flex justify-end items-center ">
             <ProductPhotoCard photos={evCharger.photos} alt="ev charger" />
           </div>
-          <div className="w-1/2">
+          <div className="w-1/3">
             <ProductSpecifications
               title={evCharger.title}
               specs={evCharger.specs}
