@@ -3,7 +3,12 @@ import { cn } from "@/utils/class-helper";
 import Link from "next/link";
 import React from "react";
 
-export default function ProductCard({ slug, photo, name, small }: Product) {
+export default function ProductCard({
+  slug,
+  photo,
+  name,
+  small,
+}: Product & { small?: boolean }) {
   return (
     <Link
       href={`/urunler/${slug}`}
