@@ -7,7 +7,7 @@ const info = {
 
 const photos = [
   {
-    url: "https://piller.com.tr/wp-content/uploads/2024/05/istasyon1-2-2.png",
+    url: "/images/istasyon/büyükistasyon.png",
     alt: "station charger 1",
     group: "#ebebeb",
     order: 1,

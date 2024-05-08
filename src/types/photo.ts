@@ -3,4 +3,5 @@ export type Photo = {
   alt: string;
   group: string;
   order: number;
+  id: number;
 };

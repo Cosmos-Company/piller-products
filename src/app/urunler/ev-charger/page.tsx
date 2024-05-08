@@ -16,15 +16,15 @@ export default function EVChargerPage() {
   return (
     <>
       <ProductForm defaultValues={{ defaultValues, color: "#ebebeb" }}>
-        <div className="w-2/3 mx-auto flex justify-center gap-[120px]">
-          <div className="w-1/2 flex justify-center items-stretch ">
+        <div className="w-5/6 mx-auto flex justify-center gap-[120px]">
+          <div className="w-full flex justify-center items-stretch ">
             <ProductPhotoCard
               filterInputName="color"
               photos={evCharger.photos}
               alt="ev charger"
             />
           </div>
-          <div className="w-1/3">
+          <div className="w-full">
             <ProductSpecifications
               title={evCharger.title}
               specs={evCharger.specs}

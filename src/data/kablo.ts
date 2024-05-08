@@ -39,12 +39,14 @@ const photos = [
     alt: "ev charger 1",
     group: "#ebebeb",
     id: 6,
+    order: 6,
   },
   {
     url: "/images/kablo/kablo7.png",
     alt: "ev charger 1",
     group: "#ebebeb",
     id: 7,
+    order: 7,
   },
 ];
 

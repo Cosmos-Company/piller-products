@@ -4,13 +4,7 @@ import { cn } from "@/utils/class-helper";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
-import Lightbox from "yet-another-react-lightbox";
-import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
-import Inline from "yet-another-react-lightbox/plugins/inline";
-import "yet-another-react-lightbox/styles.css";
-import "yet-another-react-lightbox/plugins/thumbnails.css";
-import "yet-another-react-lightbox/styles.css";
-
+import Slider from "./Slider";
 export default function ProductPhotoCard({
   photos,
   alt,
@@ -30,20 +24,7 @@ export default function ProductPhotoCard({
     ? photos.filter((photo) => photo.group === selectedFilterInput)
     : photos;
 
-  const [index, setIndex] = useState<number>(0);
-
-  const handlePhotoChange = (order: number) => {
-    const isOrderValid =
-      order >= 0 && filteredPhotos.some((photo) => photo.order === order);
-    if (isOrderValid) {
-      setIndex(order - 1);
-    } else {
-      setIndex(0);
-    }
-  };
-
   useEffect(() => {
-    setIndex(0);
     setCustomColorValue(null);
   }, [selectedFilterInput]);
 
@@ -53,67 +34,15 @@ export default function ProductPhotoCard({
     }
   }, [customColor]);
 
-  const [open, setOpen] = useState(false);
-
-  const toggleOpen = (state: boolean) => () => setOpen(state);
-
-  const updateIndex = ({ index: current }: { index: number }) =>
-    setIndex(current);
-
   return (
     <div
       className={cn(
-        "h-full",
-        hasBackground ? "bg-white rounded-br-[60px] p-10" : ""
+        "h-full p-10",
+        hasBackground ? "bg-white rounded-br-[100px]" : ""
       )}
     >
-      <div className="h-full w-[400px] overflow-hidden ">
-        <Lightbox
-          index={index}
-          slides={filteredPhotos.map((photo) => ({
-            ...photo,
-            src: photo.url,
-            width: 400,
-            height: 300,
-          }))}
-          plugins={[Inline, Thumbnails]}
-          on={{
-            view: updateIndex,
-            click: toggleOpen(true),
-          }}
-          carousel={{
-            padding: 0,
-            spacing: 0,
-            imageFit: "cover",
-          }}
-          styles={{ container: { backgroundColor: "rgba(0, 0, 0, .8)" } }}
-          inline={{
-            style: {
-              backgroundColor: customColorValue || "#ebebeb",
-              width: "100%",
-              maxWidth: "900px",
-              aspectRatio: "5 / 5",
-              margin: "0 auto",
-            },
-          }}
-        />
-
-        <Lightbox
-          open={open}
-          close={toggleOpen(false)}
-          index={index}
-          slides={filteredPhotos.map((photo) => ({
-            ...photo,
-            src: photo.url,
-            width: 800,
-            height: 600,
-          }))}
-          on={{ view: updateIndex }}
-          animation={{ fade: 0 }}
-          controller={{ closeOnPullDown: true, closeOnBackdropClick: true }}
-        />
-
-        {/* {customColorValue ? (
+      <div className="max-h-fit   w-full overflow-hidden ">
+        {customColorValue ? (
           <img
             src={"/mock1.png"}
             alt={alt}
@@ -122,18 +51,12 @@ export default function ProductPhotoCard({
               backgroundColor: customColorValue,
             }}
           />
-        ) : filteredPhotos?.[index] ? (
-          <img
-            src={filteredPhotos?.[index].url}
-            alt={alt}
-            className="h-full object-cover"
-          />
         ) : (
-          <img src={photos[0].url} alt={alt} className=" h-full object-cover" />
-        )} */}
+          <Slider slides={filteredPhotos} />
+        )}
       </div>
-      {/* <div className="flex gap-2.5 pt-5 justify-center">
-        {!customColorValue &&
+      <div className="flex gap-2.5 pt-5 justify-center">
+        {/* {!customColorValue &&
           filteredPhotos?.map((photo) => (
             <button
               type="button"
@@ -150,8 +73,8 @@ export default function ProductPhotoCard({
                   : "bg-[#9fa1a7]"
               )}
             ></button>
-          ))}
-      </div> */}
+          ))} */}
+      </div>
     </div>
   );
 }

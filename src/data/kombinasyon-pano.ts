@@ -1,31 +1,24 @@
 const photos = [
   {
-    url: "/monofaze.png",
+    url: "/images/pano/pano1.png",
     alt: "monofaze",
     group: "monofaze",
     order: 1,
     id: 1,
   },
   {
-    url: "/trifaze.png",
+    url: "/images/pano/pano2.png",
     alt: "trifaze",
     group: "trifaze",
     order: 2,
     id: 2,
   },
   {
-    url: "https://piller.com.tr/wp-content/uploads/2024/04/beyaz-scaled.jpg",
-    alt: "ev charger 1",
-    group: "#ebebeb",
-    order: 3,
+    url: "/images/pano/pano3.png",
+    alt: "schuko-yes",
+    group: "schuko-yes",
+    order: 1,
     id: 3,
-  },
-  {
-    url: "https://piller.com.tr/wp-content/uploads/2024/04/beyaz-scaled.jpg",
-    alt: "ev charger 1",
-    group: "#ebebeb",
-    order: 4,
-    id: 4,
   },
 ];
 
