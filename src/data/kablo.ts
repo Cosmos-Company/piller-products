@@ -2,7 +2,7 @@ const photos = [
   {
     url: "/images/kablo/kablo1.png",
     alt: "ev charger 1",
-    group: "#ebebeb",
+    group: "kirmizi-siyah",
     id: 1,
     order: 1,
   },
@@ -16,7 +16,7 @@ const photos = [
   {
     url: "/images/kablo/kablo3.png",
     alt: "ev charger 1",
-    group: "#ebebeb",
+    group: "kirmizi-mavi",
     id: 3,
     order: 3,
   },
@@ -30,7 +30,7 @@ const photos = [
   {
     url: "/images/kablo/kablo5.png",
     alt: "ev charger 1",
-    group: "#ebebeb",
+    group: "mavi-siyah",
     id: 5,
     order: 5,
   },
@@ -84,13 +84,13 @@ export const kablo = {
       dependsOn: "ilk-uc",
       options: [
         {
-          value: "mavi",
+          value: "kirmizi-mavi",
           label: "Mavi",
           dependsOnValue: "kirmizi",
           description: "Trifaz deger",
         },
-        { value: "siyah", label: "Siyah", dependsOnValue: "kirmizi" },
-        { value: "siyah", label: "Siyah", dependsOnValue: "mavi" },
+        { value: "kirmizi-siyah", label: "Siyah", dependsOnValue: "kirmizi" },
+        { value: "mavi-siyah", label: "Siyah", dependsOnValue: "mavi" },
       ],
     },
   ],

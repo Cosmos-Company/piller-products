@@ -10,6 +10,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
 import { Photo } from "@/types/photo";
 import { cn } from "@/utils/class-helper";
+import "./embla.css";
 
 type PropType = {
   slides: Photo[];
@@ -61,24 +62,10 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
         </div>
       </div>
 
-      <div className="embla__controls">
+      <div className=" flex justify-center mt-6">
         <div className="embla__buttons">
           <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
           <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
-        </div>
-
-        <div className="flex gap-2 justify-end items-center">
-          {scrollSnaps.length > 1 &&
-            scrollSnaps.map((_, index) => (
-              <DotButton
-                key={index}
-                onClick={() => onDotButtonClick(index)}
-                className={cn(
-                  "w-2.5 h-2.5 rounded-[50%]",
-                  index === selectedIndex ? "bg-[#2a50fe]" : "bg-[#9fa1a7]"
-                )}
-              />
-            ))}
         </div>
       </div>
     </section>

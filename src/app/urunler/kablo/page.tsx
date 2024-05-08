@@ -21,6 +21,7 @@ export default function Kablo() {
             photos={kablo.photos}
             alt="ev charger"
             hasBackground
+            filterInputName="ikinci-uc"
           />
         </div>
         <div className="w-full">
