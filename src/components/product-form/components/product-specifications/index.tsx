@@ -32,7 +32,7 @@ export default function ProductSpecifications({
                   (dependingValue &&
                     !Object.keys(option).includes("dependsOnValue")) ||
                   (option.dependsOnValue as string) ===
-                  (dependingValue as any as string)
+                    (dependingValue as any as string)
                 ) {
                   return (
                     <RadioButton
@@ -109,7 +109,7 @@ export default function ProductSpecifications({
           if (
             spec.options?.some(
               (option) =>
-                !option.dependsOnValue ||
+                !Object.keys(option).includes("dependsOnValue") ||
                 option.dependsOnValue === dependingValue
             )
           ) {

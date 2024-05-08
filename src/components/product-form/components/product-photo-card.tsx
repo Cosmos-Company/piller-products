@@ -14,7 +14,7 @@ export default function ProductPhotoCard({
   photos: Photo[];
   alt: string;
   hasBackground?: boolean;
-  filterInputName: string;
+  filterInputName?: string;
 }) {
   const form = useFormContext();
   const selectedFilterInput = form.watch(filterInputName);
@@ -37,11 +37,11 @@ export default function ProductPhotoCard({
   return (
     <div
       className={cn(
-        "h-full p-10",
+        "h-[400px] w-[400px] p-10",
         hasBackground ? "bg-white rounded-br-[100px]" : ""
       )}
     >
-      <div className="max-h-fit   w-full overflow-hidden ">
+      <div className=" overflow-hidden ">
         {customColorValue ? (
           <img
             src={"/mock1.png"}
@@ -51,8 +51,10 @@ export default function ProductPhotoCard({
               backgroundColor: customColorValue,
             }}
           />
-        ) : (
+        ) : filteredPhotos.length > 0 ? (
           <Slider slides={filteredPhotos} />
+        ) : (
+          <Slider slides={photos} />
         )}
       </div>
       <div className="flex gap-2.5 pt-5 justify-center">

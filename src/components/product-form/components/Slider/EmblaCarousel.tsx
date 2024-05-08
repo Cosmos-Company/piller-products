@@ -52,7 +52,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
             <div className="embla__slide" key={slide.id}>
               <div className="embla__slide__number">
                 <img
-                  className=" w-full min-w-[250px] h-full object-contain"
+                  className=" w-full min-w-[250px] max-h-[250px] h-full object-contain"
                   src={slide.url}
                 />
               </div>
@@ -68,16 +68,17 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
         </div>
 
         <div className="flex gap-2 justify-end items-center">
-          {scrollSnaps.map((_, index) => (
-            <DotButton
-              key={index}
-              onClick={() => onDotButtonClick(index)}
-              className={cn(
-                "w-2.5 h-2.5 rounded-[50%]",
-                index === selectedIndex ? "bg-[#2a50fe]" : "bg-[#9fa1a7]"
-              )}
-            />
-          ))}
+          {scrollSnaps.length > 1 &&
+            scrollSnaps.map((_, index) => (
+              <DotButton
+                key={index}
+                onClick={() => onDotButtonClick(index)}
+                className={cn(
+                  "w-2.5 h-2.5 rounded-[50%]",
+                  index === selectedIndex ? "bg-[#2a50fe]" : "bg-[#9fa1a7]"
+                )}
+              />
+            ))}
         </div>
       </div>
     </section>
