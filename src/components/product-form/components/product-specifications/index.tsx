@@ -32,7 +32,7 @@ export default function ProductSpecifications({
                   (dependingValue &&
                     !Object.keys(option).includes("dependsOnValue")) ||
                   (option.dependsOnValue as string) ===
-                    (dependingValue as any as string)
+                  (dependingValue as any as string)
                 ) {
                   return (
                     <RadioButton
@@ -43,6 +43,7 @@ export default function ProductSpecifications({
                       description={option.description}
                       isCircle={spec.subType === "circle"}
                       isBig={spec.subType === "big"}
+                      isQuantity={spec.subType === "quantity"}
                       defaultValue={spec.default}
                     />
                   );
@@ -62,6 +63,7 @@ export default function ProductSpecifications({
                 description={option.description}
                 isCircle={spec.subType === "circle"}
                 isBig={spec.subType === "big"}
+                isQuantity={spec.subType === "quantity"}
                 defaultValue={spec.default}
               />
             ))}

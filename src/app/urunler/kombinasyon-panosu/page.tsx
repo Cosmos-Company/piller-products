@@ -29,7 +29,6 @@ export default function KombinasyonPanosu() {
           <ProductSpecifications title={pano.title} specs={pano.specs} />
         </div>
       </div>
-      <QuantityButton />
     </ProductForm>
   );
 }

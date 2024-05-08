@@ -1,9 +1,9 @@
 "use client";
-import { cn } from "@/utils/class-helper";
 import clsx from "clsx";
-import React, { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { IoMdInformationCircle } from "react-icons/io";
+import QuantityButton from "./quantity-button";
 
 export default function RadioButton({
   name,
@@ -11,6 +11,7 @@ export default function RadioButton({
   label,
   isCircle,
   isBig,
+  isQuantity,
   dependingValue,
   description,
   defaultValue,
@@ -20,13 +21,13 @@ export default function RadioButton({
   label: string;
   isCircle?: boolean;
   isBig?: boolean;
+  isQuantity?: boolean;
   dependingValue?: string;
   description?: string;
   defaultValue?: string;
 }) {
   const form = useFormContext();
   const id = useId();
-
   useEffect(() => {
     if (!dependingValue) return;
     form.setValue(name, null);
@@ -42,6 +43,10 @@ export default function RadioButton({
       setChecked(false);
     }
   }, [watch]);
+
+  if (isQuantity) return (
+    <QuantityButton />
+  )
 
   return (
     <>
@@ -62,8 +67,9 @@ export default function RadioButton({
           isCircle
             ? " w-4 h-4 p-5 rounded-full"
             : isBig
-            ? "w-[45%] rounded-[20px] "
-            : "rounded-[40px] py-2 px-5",
+              ? "w-[45%] rounded-[20px] "
+              : "rounded-[40px] py-2 px-5",
+          isQuantity && "w-16 h-16",
           checked
             ? isBig
               ? "border-primary border-2"

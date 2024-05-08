@@ -43,7 +43,6 @@ export const pano = {
       type: "radio",
       name: "schuko",
       title: "Schuko olsun mu?",
-      // evet olması halinde max 2 adet eklenebilir
       subType: "model",
       options: [
         { value: "schuko-yes", label: "Evet" },
@@ -52,13 +51,12 @@ export const pano = {
     },
     {
       type: "radio",
+      subType: "quantity",
       name: "schuko-adet",
       title: "Adet",
-      dependsOn: "schuko", // evet olması halinde max 2 adet eklenebilir
-      subType: "model",
+      dependsOn: "schuko",
       options: [
         { value: "1-adet", label: "1 Adet", dependsOnValue: "schuko-yes" },
-        { value: "2-adet", label: "2 Adet", dependsOnValue: "schuko-yes" },
       ],
     },
     {

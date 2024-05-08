@@ -12,9 +12,9 @@ export default function TextOption({ name, ...rest }: any) {
         pattern:
           rest.type === "email"
             ? {
-                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-                message: "Geçerli bir mail adresi giriniz",
-              }
+              value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+              message: "Geçerli bir mail adresi giriniz",
+            }
             : undefined,
       }}
       render={({ field }) => <Input {...rest} {...field} />}
