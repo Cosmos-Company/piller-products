@@ -16,18 +16,18 @@ export default function KombinasyonPanosu() {
 
   return (
     <ProductForm defaultValues={{ defaultValues, color: "#ebebeb" }}>
-    <div className="w-5/6 mx-auto flex justify-center gap-[120px]">
-      <div className="w-full flex justify-center items-stretch ">
-        <ProductPhotoCard
-          photos={pano.photos}
-          alt="ev charger"
-          hasBackground
-        />
+      <div className="w-5/6 mx-auto flex justify-center gap-[80px]">
+        <div className="w-full flex justify-center items-stretch ">
+          <ProductPhotoCard
+            photos={pano.photos}
+            alt="ev charger"
+            hasBackground
+          />
+        </div>
+        <div className="w-full">
+          <ProductSpecifications title={pano.title} specs={pano.specs} />
+        </div>
       </div>
-      <div className="w-full">
-        <ProductSpecifications title={pano.title} specs={pano.specs} />
-      </div>
-    </div>
-  </ProductForm>
+    </ProductForm>
   );
 }

@@ -52,7 +52,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
             <div className="embla__slide" key={slide.id}>
               <div className="embla__slide__number">
                 <img
-                  className=" w-full min-w-[250px] max-h-[250px] h-full object-contain"
+                  className=" w-full min-w-[250px] max-h-[450px] h-full object-contain"
                   src={slide.url}
                 />
               </div>

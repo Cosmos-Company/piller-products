@@ -44,9 +44,9 @@ export default function ProductPhotoCard({
       <div className=" overflow-hidden ">
         {customColorValue ? (
           <img
-            src={"/mock1.png"}
+            src={"/images/ev-charger/seffaf.png"}
             alt={alt}
-            className="h-full object-cover "
+            className="  w-fit max-h-[450px] mx-auto h-full object-contain"
             style={{
               backgroundColor: customColorValue,
             }}

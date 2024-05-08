@@ -106,7 +106,10 @@ export default function ProductSpecifications({
       <section className="flex flex-col gap-8">
         {specs.map((spec) => {
           const dependingValue = form.watch(spec.dependsOn as any);
+          console.log(dependingValue);
+
           if (
+            !spec.dependsOn ||
             spec.options?.some(
               (option) =>
                 !Object.keys(option).includes("dependsOnValue") ||
@@ -127,6 +130,8 @@ export default function ProductSpecifications({
                 {createSpec(spec)}
               </OptionContainer>
             );
+          } else {
+            return null;
           }
         })}
         <ProductFooter />
