@@ -11,6 +11,11 @@ const config: Config = {
       colors: {
         primary: "#2a50fe",
       },
+      boxShadow: {
+        "inner-lg": "inset 0 0 10px 0 rgba(0, 0, 0, 0.5)",
+        "inner-xl": "inset 0 0 20px 0 rgba(0, 0, 0, 0.5)",
+        "inner-5xl": "inset 0 0 50px 0 rgba(0, 0, 0, 0.8)",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

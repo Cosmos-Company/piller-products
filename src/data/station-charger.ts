@@ -11,6 +11,7 @@ const photos = [
     alt: "station charger 1",
     group: "#ebebeb",
     order: 1,
+    id: 1,
   },
 ];
 

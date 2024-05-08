@@ -4,24 +4,28 @@ const photos = [
     alt: "monofaze",
     group: "monofaze",
     order: 1,
+    id: 1,
   },
   {
     url: "/trifaze.png",
     alt: "trifaze",
     group: "trifaze",
-    order: 1,
+    order: 2,
+    id: 2,
   },
   {
     url: "https://piller.com.tr/wp-content/uploads/2024/04/beyaz-scaled.jpg",
     alt: "ev charger 1",
     group: "#ebebeb",
-    order: 1,
+    order: 3,
+    id: 3,
   },
   {
     url: "https://piller.com.tr/wp-content/uploads/2024/04/beyaz-scaled.jpg",
     alt: "ev charger 1",
     group: "#ebebeb",
-    order: 1,
+    order: 4,
+    id: 4,
   },
 ];
 
@@ -32,7 +36,7 @@ export const pano = {
     {
       type: "radio",
       name: "faze",
-      title: "İhtiyacınıza en uygun <b>trifaz</b> nedir?",
+      title: "İhtiyacınıza en uygun <b>faz</b> nedir?",
       default: "monofaze",
       options: [
         { value: "monofaze", label: "Monofaze" },

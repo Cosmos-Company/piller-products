@@ -1,9 +1,50 @@
 const photos = [
   {
-    url: "https://piller.com.tr/wp-content/uploads/2024/04/beyaz-scaled.jpg",
+    url: "/images/kablo/kablo1.png",
     alt: "ev charger 1",
     group: "#ebebeb",
+    id: 1,
     order: 1,
+  },
+  {
+    url: "/images/kablo/kablo2.png",
+    alt: "ev charger 1",
+    group: "#ebebeb",
+    id: 2,
+    order: 2,
+  },
+  {
+    url: "/images/kablo/kablo3.png",
+    alt: "ev charger 1",
+    group: "#ebebeb",
+    id: 3,
+    order: 3,
+  },
+  {
+    url: "/images/kablo/kablo4.png",
+    alt: "ev charger 1",
+    group: "#ebebeb",
+    id: 4,
+    order: 4,
+  },
+  {
+    url: "/images/kablo/kablo5.png",
+    alt: "ev charger 1",
+    group: "#ebebeb",
+    id: 5,
+    order: 5,
+  },
+  {
+    url: "/images/kablo/kablo6.png",
+    alt: "ev charger 1",
+    group: "#ebebeb",
+    id: 6,
+  },
+  {
+    url: "/images/kablo/kablo7.png",
+    alt: "ev charger 1",
+    group: "#ebebeb",
+    id: 7,
   },
 ];
 
@@ -27,7 +68,7 @@ export const kablo = {
       type: "radio",
       name: "ilk-uc",
       title: "Birinci ucu seçiniz?",
-      subType: "big",
+      subType: "",
       options: [
         { value: "kirmizi", label: "Kırmızı" },
         { value: "mavi", label: "Mavi" },
@@ -37,7 +78,7 @@ export const kablo = {
       type: "radio",
       name: "ikinci-uc",
       title: "İkinci ucu seçiniz?",
-      subType: "big",
+      subType: "",
       dependsOn: "ilk-uc",
       options: [
         {

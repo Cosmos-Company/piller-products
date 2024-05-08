@@ -4,6 +4,13 @@ import { cn } from "@/utils/class-helper";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
+import Lightbox from "yet-another-react-lightbox";
+import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
+import Inline from "yet-another-react-lightbox/plugins/inline";
+import "yet-another-react-lightbox/styles.css";
+import "yet-another-react-lightbox/plugins/thumbnails.css";
+import "yet-another-react-lightbox/styles.css";
+
 export default function ProductPhotoCard({
   photos,
   alt,
@@ -19,9 +26,9 @@ export default function ProductPhotoCard({
   const selectedFilterInput = form.watch(filterInputName);
   const customColor = form.watch("customColor");
   const [customColorValue, setCustomColorValue] = useState<string | null>(null);
-  const filteredPhotos = photos.filter(
-    (photo) => photo.group === selectedFilterInput
-  );
+  const filteredPhotos = filterInputName
+    ? photos.filter((photo) => photo.group === selectedFilterInput)
+    : photos;
 
   const [index, setIndex] = useState<number>(0);
 
@@ -46,15 +53,67 @@ export default function ProductPhotoCard({
     }
   }, [customColor]);
 
+  const [open, setOpen] = useState(false);
+
+  const toggleOpen = (state: boolean) => () => setOpen(state);
+
+  const updateIndex = ({ index: current }: { index: number }) =>
+    setIndex(current);
+
   return (
     <div
       className={cn(
-        "h-full bg-red-500",
-        hasBackground ? "bg-white rounded-br-[60px]" : ""
+        "h-full",
+        hasBackground ? "bg-white rounded-br-[60px] p-10" : ""
       )}
     >
-      <div className="max-h-fit rounded-br-[60px]  w-full overflow-hidden ">
-        {customColorValue ? (
+      <div className="h-full w-[400px] overflow-hidden ">
+        <Lightbox
+          index={index}
+          slides={filteredPhotos.map((photo) => ({
+            ...photo,
+            src: photo.url,
+            width: 400,
+            height: 300,
+          }))}
+          plugins={[Inline, Thumbnails]}
+          on={{
+            view: updateIndex,
+            click: toggleOpen(true),
+          }}
+          carousel={{
+            padding: 0,
+            spacing: 0,
+            imageFit: "cover",
+          }}
+          styles={{ container: { backgroundColor: "rgba(0, 0, 0, .8)" } }}
+          inline={{
+            style: {
+              backgroundColor: customColorValue || "#ebebeb",
+              width: "100%",
+              maxWidth: "900px",
+              aspectRatio: "5 / 5",
+              margin: "0 auto",
+            },
+          }}
+        />
+
+        <Lightbox
+          open={open}
+          close={toggleOpen(false)}
+          index={index}
+          slides={filteredPhotos.map((photo) => ({
+            ...photo,
+            src: photo.url,
+            width: 800,
+            height: 600,
+          }))}
+          on={{ view: updateIndex }}
+          animation={{ fade: 0 }}
+          controller={{ closeOnPullDown: true, closeOnBackdropClick: true }}
+        />
+
+        {/* {customColorValue ? (
           <img
             src={"/mock1.png"}
             alt={alt}
@@ -67,13 +126,13 @@ export default function ProductPhotoCard({
           <img
             src={filteredPhotos?.[index].url}
             alt={alt}
-            className="h-full object-cover "
+            className="h-full object-cover"
           />
         ) : (
           <img src={photos[0].url} alt={alt} className=" h-full object-cover" />
-        )}
+        )} */}
       </div>
-      <div className="flex gap-2.5 pt-5 justify-center">
+      {/* <div className="flex gap-2.5 pt-5 justify-center">
         {!customColorValue &&
           filteredPhotos?.map((photo) => (
             <button
@@ -92,7 +151,7 @@ export default function ProductPhotoCard({
               )}
             ></button>
           ))}
-      </div>
+      </div> */}
     </div>
   );
 }

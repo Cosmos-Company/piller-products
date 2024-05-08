@@ -6,17 +6,18 @@ function QuantityButton() {
   const [value, setValue] = useState(1);
 
   const checkValue = (emr_value: number) => {
-    setValue(prev => prev + emr_value >= 1 && prev + emr_value <= 2 ? prev + emr_value : prev);
-
-  }
+    setValue((prev) =>
+      prev + emr_value >= 1 && prev + emr_value <= 2 ? prev + emr_value : prev
+    );
+  };
 
   return (
     <div className="flex gap-6">
-      <button type="button"  >
-        <CiCircleMinus className=" size-7" onClick={() => checkValue(- 1)} />
+      <button type="button">
+        <CiCircleMinus className=" size-7" onClick={() => checkValue(-1)} />
       </button>
       <input
-        className="w-16 text-center pl-2"
+        className="w-16 text-center pl-2 bg-transparent"
         min={1}
         max={2}
         type="number"
@@ -24,7 +25,7 @@ function QuantityButton() {
         disabled
         onChange={(e) => setValue(e.target.value)}
       />
-      <button type="button" >
+      <button type="button">
         <CiCirclePlus className=" size-7" onClick={() => checkValue(1)} />
       </button>
     </div>

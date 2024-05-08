@@ -15,9 +15,13 @@ export default function Kablo() {
 
   return (
     <ProductForm defaultValues={{ defaultValues, color: "#ebebeb" }}>
-      <div>
+      <div className="flex gap-[120px]">
         <div className="w-1/2 flex justify-end items-center ">
-          <ProductPhotoCard photos={kablo.photos} alt="ev charger" />
+          <ProductPhotoCard
+            photos={kablo.photos}
+            alt="ev charger"
+            hasBackground
+          />
         </div>
         <div className="w-1/3">
           <ProductSpecifications title={kablo.title} specs={kablo.specs} />
