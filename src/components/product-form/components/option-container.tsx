@@ -1,15 +1,22 @@
 import { cn } from "@/utils/class-helper";
 import React, { ReactNode } from "react";
+import { useFormContext } from "react-hook-form";
 
 export default function OptionContainer({
   children,
   title,
   id,
+  name,
 }: {
   children?: ReactNode;
   title?: string;
   id: string;
+  name: string;
 }) {
+  const {
+    formState: { errors },
+  } = useFormContext();
+
   return (
     <div
       className={cn(
@@ -26,6 +33,11 @@ export default function OptionContainer({
         ></p>
       )}
       {children}
+      {errors?.[name] && (
+        <span className="text-red-500 text-sm font-semibold">
+          {errors?.[name]?.message as string}
+        </span>
+      )}
     </div>
   );
 }

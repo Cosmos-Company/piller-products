@@ -1,3 +1,5 @@
+import { Spec } from "@/types/spec";
+
 const photos = [
   {
     url: "/images/kablo/kablo1.png",
@@ -93,5 +95,5 @@ export const kablo = {
         { value: "mavi-siyah", label: "Siyah", dependsOnValue: "mavi" },
       ],
     },
-  ],
+  ] as Spec[],
 };

@@ -1,9 +1,9 @@
 "use client";
 import ProductForm from "@/components/product-form";
-import KabloPhoto from "@/components/product-form/components/kablo-photo";
 import ProductPhotoCard from "@/components/product-form/components/product-photo-card";
 import ProductSpecifications from "@/components/product-form/components/product-specifications";
 import { kablo } from "@/data/kablo";
+import { z } from "zod";
 
 export default function Kablo() {
   const defaultValues = kablo.specs.reduce(
@@ -13,8 +13,17 @@ export default function Kablo() {
     { email: "" }
   );
 
+  const schema = z.object({
+    uzunluk: z.string(),
+    "ikinci-uc": z.string(),
+    "ilk-uc": z.string(),
+  });
+
   return (
-    <ProductForm defaultValues={{ defaultValues, color: "#ebebeb" }}>
+    <ProductForm
+      schema={schema}
+      defaultValues={{ defaultValues, color: "#ebebeb" }}
+    >
       <div className="w-5/6 mx-auto flex justify-center gap-[80px]">
         <div className="w-full flex justify-center items-stretch ">
           <ProductPhotoCard

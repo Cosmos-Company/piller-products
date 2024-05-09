@@ -5,6 +5,7 @@ export type Spec = {
   subType?: string;
   placeholder?: string;
   dependsOn?: string;
+  default?: string;
   options?: {
     label: string;
     value: string;

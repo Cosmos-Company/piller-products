@@ -17,13 +17,12 @@ function QuantityButton() {
         <CiCircleMinus className=" size-7" onClick={() => checkValue(-1)} />
       </button>
       <input
-        className="w-16 text-center pl-2 bg-transparent"
+        className="w-8 text-center pl-2 bg-transparent bg-white border border-gray-300 rounded-md h-10 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
         min={1}
         max={2}
         type="number"
         value={value}
-        disabled
-        onChange={(e) => setValue(e.target.value)}
+        onChange={(e) => setValue(Number(e.target.value))}
       />
       <button type="button">
         <CiCirclePlus className=" size-7" onClick={() => checkValue(1)} />

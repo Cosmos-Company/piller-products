@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import OptionContainer from "../option-container";
 import { Spec } from "@/types/spec";
 import RadioButtons from "../radio-buttons";
@@ -7,9 +7,10 @@ import ColorButton from "../color-button";
 import Input from "@/components/form-elements/input";
 import CarModelSelect from "../car-model-select";
 import TextOption from "../text-option";
-import { useFormContext } from "react-hook-form";
+import { Controller, useFormContext } from "react-hook-form";
 import CustomColor from "../custom-color";
 import ProductFooter from "../product-footer";
+import { debounce } from "lodash";
 
 export default function ProductSpecifications({
   title,
@@ -27,7 +28,6 @@ export default function ProductSpecifications({
             <RadioButtons>
               {spec.options?.map((option) => {
                 const dependingValue = form.watch(spec.dependsOn as any);
-                console.log(dependingValue);
                 if (
                   (dependingValue &&
                     !Object.keys(option).includes("dependsOnValue")) ||
@@ -35,16 +35,22 @@ export default function ProductSpecifications({
                     (dependingValue as any as string)
                 ) {
                   return (
-                    <RadioButton
-                      key={option.value + "-" + dependingValue}
+                    <Controller
                       name={spec.name}
-                      value={option.value}
-                      label={option.label}
-                      description={option.description}
-                      isCircle={spec.subType === "circle"}
-                      isBig={spec.subType === "big"}
-                      isQuantity={spec.subType === "quantity"}
-                      defaultValue={spec.default}
+                      control={form.control}
+                      key={option.value}
+                      render={({ field }) => (
+                        <RadioButton
+                          key={option.value + "-" + dependingValue}
+                          label={option.label}
+                          isCircle={spec.subType === "circle"}
+                          isBig={spec.subType === "big"}
+                          isQuantity={spec.subType === "quantity"}
+                          {...field}
+                          checked={field.value === option.value}
+                          value={option.value}
+                        />
+                      )}
                     />
                   );
                 }
@@ -54,42 +60,90 @@ export default function ProductSpecifications({
         }
         return (
           <RadioButtons>
-            {spec.options?.map((option) => (
-              <RadioButton
-                key={option.value}
-                name={spec.name}
-                value={option.value}
-                label={option.label}
-                description={option.description}
-                isCircle={spec.subType === "circle"}
-                isBig={spec.subType === "big"}
-                isQuantity={spec.subType === "quantity"}
-                defaultValue={spec.default}
-              />
-            ))}
+            {spec.options?.map((option) => {
+              return (
+                <Controller
+                  name={spec.name}
+                  control={form.control}
+                  key={option.value}
+                  render={({ field }) => {
+                    return (
+                      <RadioButton
+                        key={option.value}
+                        label={option.label}
+                        isCircle={spec.subType === "circle"}
+                        isBig={spec.subType === "big"}
+                        isQuantity={spec.subType === "quantity"}
+                        {...field}
+                        checked={field.value === option.value}
+                        value={option.value}
+                      />
+                    );
+                  }}
+                />
+              );
+            })}
           </RadioButtons>
         );
       case "color":
         return (
           <RadioButtons>
             {spec.options?.map((option) => (
-              <ColorButton
-                key={option.value}
-                backgroundColor={option.value}
+              <Controller
                 name={spec.name}
+                control={form.control}
+                key={option.value}
+                render={({ field }) => {
+                  const onChange = (e: any) => {
+                    form.setValue("customColor", null);
+                    field.onChange(e);
+                  };
+
+                  return (
+                    <ColorButton
+                      key={option.value}
+                      backgroundColor={option.value}
+                      {...field}
+                      onChange={onChange}
+                      checked={field.value === option.value}
+                      value={option.value}
+                    />
+                  );
+                }}
               />
             ))}
           </RadioButtons>
         );
       case "text":
         if (spec.subType === "color") {
-          return <CustomColor name={spec.name} type={"color"} />;
+          return (
+            <Controller
+              name={spec.name}
+              control={form.control}
+              key={spec.name}
+              render={({ field }) => {
+                const handleValueChangeDebounced = debounce((e) => {
+                  field.onChange(e);
+                  form.setValue("color", null);
+                }, 300);
+                return (
+                  <CustomColor
+                    type={"color"}
+                    {...field}
+                    onChange={handleValueChangeDebounced}
+                  />
+                );
+              }}
+            />
+          );
         }
         return (
-          <TextOption
-            type={"text"}
+          <Controller
             name={spec.name}
-            placeholder={spec.placeholder}
+            control={form.control}
+            render={({ field }) => (
+              <Input type={"text"} placeholder={spec.placeholder} {...field} />
+            )}
           />
         );
       case "car-select":
@@ -106,7 +160,6 @@ export default function ProductSpecifications({
       <section className="flex flex-col gap-8">
         {specs.map((spec) => {
           const dependingValue = form.watch(spec.dependsOn as any);
-          console.log(dependingValue);
 
           if (
             !spec.dependsOn ||
@@ -121,12 +174,8 @@ export default function ProductSpecifications({
                 key={spec.name}
                 title={spec.title}
                 id={spec.name}
+                name={spec.name}
               >
-                {form.formState.errors[spec.name] && (
-                  <span className="">
-                    {form.formState.errors[spec.name]?.message?.toString()}
-                  </span>
-                )}
                 {createSpec(spec)}
               </OptionContainer>
             );

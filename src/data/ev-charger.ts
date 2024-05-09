@@ -1,3 +1,5 @@
+import { Spec } from "@/types/spec";
+
 const info = {
   description:
     "Piller Home Charger, bireysel kullanıma yönelik olarak tasarlanmış, AC Tip2 şarj soketine sahip şarj ünitesidir. Ev, iş yerleri, otoparklar, oteller vb. iç ve dış mekanlarda kullanıma uygun şekilde tasarlanmıştır.",
@@ -227,5 +229,5 @@ export const evCharger = {
       name: "car",
       title: "Aracınızın <b>modelini</b> seçin?",
     },
-  ],
+  ] as Spec[],
 };

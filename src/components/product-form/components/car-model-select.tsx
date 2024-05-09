@@ -40,7 +40,7 @@ export default function CarModelSelect() {
         <option value="diger">Diğer</option>
       </Select>
       {isCustomCar && (
-        <TextOption name="car-custom" type="text" placeholder="Diğer" />
+        <TextOption name="carCustom" type="text" placeholder="Diğer" />
       )}
     </div>
   );

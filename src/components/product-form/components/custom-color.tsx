@@ -13,29 +13,5 @@ export default function CustomColor({
   const form = useFormContext();
   const color = form.watch("color");
 
-  const handleValueChangeDebounced = useCallback(
-    debounce((value, onChange) => {
-      if (onChange) onChange(value);
-      form.setValue("color", null);
-    }, 300),
-    []
-  );
-
-  return (
-    <Controller
-      name={name}
-      control={form.control}
-      render={({ field }) => (
-        <Input
-          type="color"
-          {...rest}
-          {...field}
-          onChange={(e) =>
-            handleValueChangeDebounced(e.target.value, field.onChange)
-          }
-          value={color ? "" : field.value}
-        />
-      )}
-    />
-  );
+  return <Input type="color" {...rest} />;
 }
