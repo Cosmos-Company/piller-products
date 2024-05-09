@@ -15,10 +15,11 @@ import "./embla.css";
 type PropType = {
   slides: Photo[];
   options?: EmblaOptionsType;
+  hasBackground?: boolean;
 };
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
-  const { slides, options } = props;
+  const { slides, options, hasBackground } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay()]);
 
   const onNavButtonClick = useCallback((emblaApi: EmblaCarouselType) => {
@@ -53,7 +54,10 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
             <div className="embla__slide" key={slide.id}>
               <div className="embla__slide__number">
                 <img
-                  className=" w-full min-w-[250px] max-h-[450px] h-full object-contain"
+                  className={cn(
+                    " w-full min-w-[250px]  h-full object-contain",
+                    hasBackground ? "max-h-[250px]" : "max-h-[450px]"
+                  )}
                   src={slide.url}
                 />
               </div>

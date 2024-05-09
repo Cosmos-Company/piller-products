@@ -27,6 +27,7 @@ export default function KombinasyonPanosu() {
           <ProductPhotoCard
             photos={pano.photos}
             alt="ev charger"
+            filterInputName="faze"
             hasBackground
           />
         </div>

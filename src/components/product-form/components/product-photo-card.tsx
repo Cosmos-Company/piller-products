@@ -53,11 +53,13 @@ export default function ProductPhotoCard({
           />
         ) : filteredPhotos.length > 0 ? (
           <EmblaCarousel
+            hasBackground={hasBackground}
             slides={filteredPhotos}
             options={{ dragFree: true, loop: true }}
           />
         ) : (
           <EmblaCarousel
+            hasBackground={hasBackground}
             slides={photos}
             options={{ dragFree: true, loop: true }}
           />
