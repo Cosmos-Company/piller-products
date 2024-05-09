@@ -21,13 +21,18 @@ export default function ProductForm({
     shouldUseNativeValidation: true,
   });
 
-  const onSubmit = async (req: any, data: any) => {
+  const onSubmit = async (data: any) => {
+    console.log(data.email);
+    if (!data.email) {
+      alert("Lütfen geçerli bir email adresi giriniz.");
+      return;
+    }
     alert("Teklif isteğiniz alınmıştır. En kısa sürede dönüş yapılacaktır.");
 
     delete data.defaultValues;
     const res = await fetch("/api/mail", {
       method: "POST",
-      body: JSON.stringify(req),
+      body: JSON.stringify(data),
     });
     console.log(res);
   };
@@ -40,6 +45,8 @@ export default function ProductForm({
           className="flex flex-col gap-10 h-screen  py-24"
           onSubmit={form.handleSubmit(onSubmit)}
         >
+          {JSON.stringify(form.formState.errors)}
+
           {children}
         </form>
       </FormProvider>

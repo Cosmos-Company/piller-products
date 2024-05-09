@@ -18,8 +18,10 @@ export default function ProductFooter() {
 
   const validateForm = () => {
     form.handleSubmit(
-      () => setShowPopup(true),
-      (e) => console.log(e)
+      () => {},
+      (e) => {
+        Object.keys(e)?.[0] === "email" && setShowPopup(true);
+      }
     )();
   };
 
@@ -56,17 +58,13 @@ export default function ProductFooter() {
                 <TextOption
                   type="email"
                   placeholder="Mail Adresiniz"
-                  {...form.register("email", {
-                    required: true,
-                    pattern: /^\S+@\S+$/i,
-                  })}
+                  {...form.register("email")}
                 />
-                {form.formState.errors?.["email"] &&
-                  form.formState.errors?.["email"]?.type === "required" && (
-                    <span className="text-red-500 text-sm font-semibold">
-                      Bu alan zorunludur.
-                    </span>
-                  )}
+                {form.formState.errors?.["email"] && (
+                  <span className="text-red-500 text-sm font-semibold">
+                    Bu alan zorunludur.
+                  </span>
+                )}
                 <Button type="submit">Gönder</Button>
               </div>
             </div>

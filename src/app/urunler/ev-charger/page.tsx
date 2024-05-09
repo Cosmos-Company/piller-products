@@ -21,19 +21,24 @@ export default function EVChargerPage() {
   };
   const schema = z
     .object({
-      kw: z.coerce.number(required).int().positive(),
+      kw: z.coerce.number(required).positive(),
       model: z.string(required),
       color: z.string().optional().nullable(),
       customColor: z.string().optional().nullable(),
       car: z.string(required).optional().nullable(),
       customCar: z.string(required).optional().nullable(),
+      email: z.string().email(),
     })
     .refine((data) => !!data.color || !!data.customColor, {
       message: "customColor is required when color is not selected",
     })
-    .refine((data) => data.car !== "diger" || !!data.customCar, {
-      message: "customCar is required when car is 'diger'",
-    });
+    .refine(
+      (data) => data.car !== "diger" || (data.car !== null && !!data.customCar),
+
+      {
+        message: "customCar is required when car is 'diger'",
+      }
+    );
 
   return (
     <>

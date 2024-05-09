@@ -32,7 +32,7 @@ export default function RadioButton({
     form.setValue(name, null);
   }, [dependingValue]);
 
-  if (isQuantity) return <QuantityButton />;
+  if (isQuantity) return <QuantityButton {...rest} />;
 
   return (
     <div className="flex">

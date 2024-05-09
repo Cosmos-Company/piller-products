@@ -1,8 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 
-function QuantityButton() {
+function QuantityButton({ ...rest }) {
   const [value, setValue] = useState(1);
 
   const checkValue = (emr_value: number) => {
@@ -10,6 +10,9 @@ function QuantityButton() {
       prev + emr_value >= 1 && prev + emr_value <= 2 ? prev + emr_value : prev
     );
   };
+  useEffect(() => {
+    rest.onChange(value);
+  }, [value]);
 
   return (
     <div className="flex gap-2">

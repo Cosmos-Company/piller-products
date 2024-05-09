@@ -15,7 +15,8 @@ export default function KombinasyonPanosu() {
   const schema = z.object({
     faze: z.string(),
     schuko: z.string(),
-    "schuko-adet": z.string(),
+    "schuko-adet": z.number(),
+    sigorta: z.string(),
   });
   return (
     <ProductForm
