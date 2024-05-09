@@ -19,6 +19,7 @@ export default function EVChargerPage() {
     required_error: "Bu alan gereklidir",
     invalid_type_error: "Bu alan gereklidir",
   };
+
   const schema = z
     .object({
       kw: z.coerce.number(required).positive(),
