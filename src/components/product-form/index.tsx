@@ -45,12 +45,10 @@ export default function ProductForm({
           className="flex flex-col gap-10 h-screen  py-24"
           onSubmit={form.handleSubmit(onSubmit)}
         >
-          {JSON.stringify(form.formState.errors)}
-
           {children}
         </form>
       </FormProvider>
-      <DevTool control={form.control} /> {/* set up the dev tool */}
+      {/* <DevTool control={form.control} />  */}
     </>
   );
 }
