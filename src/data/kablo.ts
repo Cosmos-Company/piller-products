@@ -60,7 +60,7 @@ export const kablo = {
       type: "radio",
       subType: "circle",
       name: "uzunluk",
-      title: "İhtiyacınıza en uygun olan <b>kablo uzunluğu</b> nedir?",
+      title: "İhtiyacınıza en uygun olan <b>kablo uzunluğunu</b> seçin.",
       options: [
         { value: "5", label: "5" },
         { value: "7,5", label: "7,5" },
@@ -71,7 +71,7 @@ export const kablo = {
     {
       type: "radio",
       name: "ilk-uc",
-      title: "Birinci ucu seçiniz?",
+      title: "Birinci ucu seçin.",
       subType: "",
       options: [
         { value: "kirmizi", label: "Kırmızı" },
@@ -81,7 +81,7 @@ export const kablo = {
     {
       type: "radio",
       name: "ikinci-uc",
-      title: "İkinci ucu seçiniz?",
+      title: "İkinci ucu seçin.",
       subType: "",
       dependsOn: "ilk-uc",
       options: [

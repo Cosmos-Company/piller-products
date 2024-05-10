@@ -26,7 +26,7 @@ export const stationCharger = {
       type: "radio",
       subType: "circle",
       name: "kw",
-      title: "Arabanıza en uygun olan <b>kW</b> değeri nedir?",
+      title: "Arabanıza en uygun olan <b>kW</b> değerini seçin.",
       options: [
         { value: "22", label: "22" },
         { value: "11", label: "11" },
@@ -37,7 +37,7 @@ export const stationCharger = {
     {
       type: "radio",
       name: "model",
-      title: "Size en uygun olan <b>model</b> hangisi?",
+      title: "Size en uygun olan <b>modeli</b> seçin.",
       default: "RFID + Kilit Aktivatörü",
       options: [
         { value: "RFID + Kilit Aktivatörü", label: "RFID + Kilit Aktivatörü" },
@@ -51,7 +51,7 @@ export const stationCharger = {
     {
       type: "radio",
       name: "area",
-      title: "Aracınızın <b>kurulacağı alanı</b> seçiniz.",
+      title: "Aracınızın <b>kurulacağı alanı</b> seçin.",
       options: [
         { value: "Açık Alan", label: "Açık Alan" },
         { value: "Kapalı Alan", label: "Kapalı Alan" },

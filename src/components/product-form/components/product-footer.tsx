@@ -16,13 +16,19 @@ export default function ProductFooter() {
       : null
   );
 
-  const validateForm = () => {
-    form.handleSubmit(
-      () => {},
-      (e) => {
-        Object.keys(e)?.[0] === "email" && setShowPopup(true);
-      }
-    )();
+  const validateForm = async () => {
+    // react-hook-formdan form bilgilerini alıp default value kullanarak validate edilecek yerleri aliyoruz
+    const values = form.getValues();
+
+    // email popup ile acildigi ve validatei sonra yapilacagi icin siliniyor
+    delete values.defaultValues.email;
+    console.log(values.defaultValues);
+    // formun validate edilmesi
+    const output = await form.trigger(
+      values.defaultValues ? Object.keys({ ...values.defaultValues }) : []
+    );
+    if (output) setShowPopup(true);
+    console.log(output);
   };
 
   useEffect(() => {

@@ -4,14 +4,14 @@ import ProductForm from "@/components/product-form";
 import ProductPhotoCard from "@/components/product-form/components/product-photo-card";
 import ProductSpecifications from "@/components/product-form/components/product-specifications";
 import { evCharger } from "@/data/ev-charger";
-import { z } from "zod";
+import { ZodType, z } from "zod";
 
 export default function EVChargerPage() {
   const defaultValues = evCharger.specs.reduce(
     (acc, spec) => {
       return { ...acc, [spec.name]: spec.default || "" };
     },
-    { email: "" }
+    { email: "", carCustom: "" }
   );
 
   console.log(defaultValues);
@@ -26,20 +26,13 @@ export default function EVChargerPage() {
       model: z.string(required),
       color: z.string().optional().nullable(),
       customColor: z.string().optional().nullable(),
-      car: z.string(required).optional().nullable(),
-      customCar: z.string(required).optional().nullable(),
-      email: z.string().email(),
+      email: z.string(required).email(),
+      car: z.string(required),
+      carCustom: z.string(required).optional(),
     })
     .refine((data) => !!data.color || !!data.customColor, {
-      message: "customColor is required when color is not selected",
-    })
-    .refine(
-      (data) => data.car !== "diger" || (data.car !== null && !!data.customCar),
-
-      {
-        message: "customCar is required when car is 'diger'",
-      }
-    );
+      message: "Renk ya da renk kodu zorunludur",
+    });
 
   return (
     <>
@@ -47,7 +40,7 @@ export default function EVChargerPage() {
         schema={schema}
         defaultValues={{ defaultValues, color: "#ebebeb" }}
       >
-        <div className="w-5/6 mx-auto flex justify-center gap-[80px]">
+        <div className="w-5/6 mx-auto flex flex-col lg:flex-row justify-center gap-[80px]">
           <div className="w-full flex justify-center items-stretch ">
             <ProductPhotoCard
               filterInputName="color"

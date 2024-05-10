@@ -181,7 +181,7 @@ export const evCharger = {
       type: "radio",
       subType: "circle",
       name: "kw",
-      title: "Arabanıza en uygun olan <b>kW</b> değeri nedir?",
+      title: "Arabanıza en uygun olan <b>kW</b> değerini seçin.",
       options: [
         { value: "22", label: "22" },
         { value: "11", label: "11" },
@@ -192,7 +192,7 @@ export const evCharger = {
     {
       type: "radio",
       name: "model",
-      title: "Size en uygun olan <b>model</b> hangisi?",
+      title: "Size en uygun olan <b>modeli</b> seçin.",
       options: [
         { value: "Tak Çalıştır", label: "Tak Çalıştır" },
         { value: "RFID + Kilit Aktivatörü", label: "RFID + Kilit Aktivatörü" },
@@ -201,7 +201,7 @@ export const evCharger = {
     {
       type: "color",
       name: "color",
-      title: "Favori <b>renginizi</b> seçin?",
+      title: "Favori <b>renginizi</b> seçin.",
       options: [
         { value: "#ebebeb", label: "Beyaz" },
         { value: "#2C5C53", label: "Yeşil" },

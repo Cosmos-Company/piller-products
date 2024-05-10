@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { NextRequest } from "next/server";
 import { ReactNode } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import { ZodObject } from "zod";
+import { ZodObject, z } from "zod";
 
 export default function ProductForm({
   schema,
@@ -15,7 +15,9 @@ export default function ProductForm({
   children: ReactNode;
   defaultValues: any;
 }) {
-  const form = useForm({
+  type Form = z.infer<typeof schema>;
+
+  const form = useForm<Form>({
     resolver: zodResolver(schema),
     defaultValues,
     shouldUseNativeValidation: true,
@@ -48,7 +50,7 @@ export default function ProductForm({
           {children}
         </form>
       </FormProvider>
-      {/* <DevTool control={form.control} />  */}
+      {/* <DevTool control={form.control} /> */}
     </>
   );
 }

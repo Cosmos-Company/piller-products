@@ -147,7 +147,13 @@ export default function ProductSpecifications({
           />
         );
       case "car-select":
-        return <CarModelSelect />;
+        return (
+          <Controller
+            name={spec.name}
+            control={form.control}
+            render={({ field }) => <CarModelSelect {...field} />}
+          />
+        );
     }
   };
 

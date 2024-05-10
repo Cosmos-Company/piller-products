@@ -23,7 +23,7 @@ export default function KombinasyonPanosu() {
       schema={schema}
       defaultValues={{ defaultValues, color: "#ebebeb" }}
     >
-      <div className="w-5/6 mx-auto flex justify-center gap-[80px]">
+      <div className="w-5/6 mx-auto flex justify-center flex-col lg:flex-row  gap-[80px]">
         <div className="w-full flex justify-center items-stretch ">
           <ProductPhotoCard
             photos={pano.photos}

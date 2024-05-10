@@ -29,7 +29,7 @@ export const pano = {
     {
       type: "radio",
       name: "faze",
-      title: "İhtiyacınıza en uygun <b>faz</b> nedir?",
+      title: "Aracınıza uygun <b>panoyu</b> seçin.",
       default: "monofaze",
       options: [
         { value: "monofaze", label: "Monofaze" },
@@ -39,7 +39,7 @@ export const pano = {
     {
       type: "radio",
       name: "schuko",
-      title: "Schuko olsun mu?",
+      title: "Schuko priz olsun mu?",
       subType: "model",
       options: [
         { value: "schuko-yes", label: "Evet" },
