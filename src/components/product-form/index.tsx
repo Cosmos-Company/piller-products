@@ -44,7 +44,7 @@ export default function ProductForm({
       <FormProvider {...form}>
         <form
           id="product-form"
-          className="flex flex-col gap-10 h-screen  py-24"
+          className="flex flex-col gap-10 min-h-screen  py-24"
           onSubmit={form.handleSubmit(onSubmit)}
         >
           {children}

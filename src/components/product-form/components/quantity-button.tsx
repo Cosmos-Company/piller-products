@@ -21,9 +21,7 @@ function QuantityButton({ ...rest }) {
       </button>
       <input
         className="w-12 text-center pl-2 bg-transparent bg-white border border-gray-300 rounded-md h-10 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
-        min={1}
-        max={2}
-        type="number"
+        type="text"
         value={value}
         onChange={(e) => setValue(Number(e.target.value))}
       />

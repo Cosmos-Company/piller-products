@@ -37,7 +37,7 @@ export default function ProductPhotoCard({
   return (
     <div
       className={cn(
-        "max-h-[400px] w-[400px] p-10 pb-10",
+        " w-[400px] p-10 pb-10",
         hasBackground ? "bg-white rounded-br-[100px]" : ""
       )}
     >

@@ -57,7 +57,7 @@ export default function EVChargerPage() {
         </div>
       </ProductForm>
 
-      <div className="flex justify-center">
+      <div className="flex  justify-center">
         <ProductDescription info={evCharger.info} className="" />
       </div>
     </>

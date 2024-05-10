@@ -56,7 +56,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                 <img
                   className={cn(
                     " w-full min-w-[250px]  h-full object-contain",
-                    hasBackground ? "max-h-[250px]" : "max-h-[450px]"
+                    hasBackground ? "max-h-[350px]" : "max-h-[450px]"
                   )}
                   src={slide.url}
                 />
