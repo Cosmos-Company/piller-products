@@ -9,7 +9,7 @@ const info = {
 
 const photos = [
   {
-    url: "/images/istasyon/büyükistasyon.png",
+    url: "/images/istasyon/buyukistasyon.png",
     alt: "station charger 1",
     group: "#ebebeb",
     order: 1,

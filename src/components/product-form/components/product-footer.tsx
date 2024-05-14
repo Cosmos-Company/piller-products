@@ -51,10 +51,10 @@ export default function ProductFooter() {
             onClick={(e) => {
               setShowPopup(false);
             }}
-            className="fixed z-50  inset-0 flex justify-center items-center"
+            className="fixed z-50  h-[600px] right-0 left-0 flex justify-center items-center"
           >
             <div
-              className="bg-white w-1/3 h-[30vh] rounded-[50px] px-6 py-8 flex flex-col justify-around items-center gap-6"
+              className="bg-white w-1/3  rounded-[50px] px-6 py-8 flex flex-col justify-around items-center gap-6"
               onClick={(e) => {
                 e.stopPropagation();
               }}

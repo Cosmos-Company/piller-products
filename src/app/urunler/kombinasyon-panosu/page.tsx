@@ -12,11 +12,16 @@ export default function KombinasyonPanosu() {
     },
     { email: "" }
   );
+  const required = {
+    required_error: "Bu alan gereklidir",
+    invalid_type_error: "Bu alan gereklidir",
+  };
   const schema = z.object({
-    faze: z.string(),
-    schuko: z.string(),
-    "schuko-adet": z.number(),
-    sigorta: z.string(),
+    faze: z.string(required),
+    schuko: z.string(required),
+    "schuko-adet": z.number(required).optional(),
+    sigorta: z.string(required),
+    email: z.string(required).email(),
   });
   return (
     <ProductForm

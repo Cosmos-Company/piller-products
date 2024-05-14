@@ -13,10 +13,16 @@ export default function Kablo() {
     { email: "" }
   );
 
+  const required = {
+    required_error: "Bu alan gereklidir",
+    invalid_type_error: "Bu alan gereklidir",
+  };
+
   const schema = z.object({
-    uzunluk: z.string(),
-    "ikinci-uc": z.string(),
-    "ilk-uc": z.string(),
+    uzunluk: z.string(required),
+    "ikinci-uc": z.string(required),
+    "ilk-uc": z.string(required),
+    email: z.string(required).email(),
   });
 
   return (

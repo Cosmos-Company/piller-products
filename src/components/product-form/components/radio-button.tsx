@@ -12,6 +12,7 @@ export default function RadioButton({
   isCircle,
   isQuantity,
   dependingValue,
+
   ...rest
 }: {
   name: string;
@@ -47,7 +48,7 @@ export default function RadioButton({
         htmlFor={id}
         ref={labelRef}
         className={clsx(
-          "cursor-pointer border select-none cursor-pointer flex flex-col justify-center items-center  border-solid peer-checked:bg-[#2a50fe] peer-checked:text-white peer-checked:border-[#2a50fe] border-black",
+          "cursor-pointer border select-none flex flex-col justify-center items-center  border-solid peer-checked:bg-[#2a50fe] peer-checked:text-white peer-checked:border-[#2a50fe] border-black",
           isCircle ? " w-4 h-4 p-5 rounded-full" : "rounded-[40px] py-2 px-5",
           isQuantity && "w-16 h-16"
         )}

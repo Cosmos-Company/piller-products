@@ -14,10 +14,15 @@ export default function stationChargerPage() {
     { email: "" }
   );
 
+  const required = {
+    required_error: "Bu alan gereklidir",
+    invalid_type_error: "Bu alan gereklidir",
+  };
   const schema = z.object({
-    model: z.string(),
-    car: z.string(),
-    area: z.string(),
+    model: z.string(required).default("RFID + Kilit Aktivatörü"),
+    car: z.string(required),
+    area: z.string(required),
+    email: z.string(required).email(),
   });
 
   return (

@@ -39,6 +39,7 @@ export default function ProductSpecifications({
                       name={spec.name}
                       control={form.control}
                       key={option.value}
+                      defaultValue={spec.default}
                       render={({ field }) => (
                         <RadioButton
                           key={option.value + "-" + dependingValue}
@@ -66,6 +67,7 @@ export default function ProductSpecifications({
                   name={spec.name}
                   control={form.control}
                   key={option.value}
+                  defaultValue={spec.default}
                   render={({ field }) => {
                     return (
                       <RadioButton
