@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, Lexend } from "next/font/google";
+import { Urbanist } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/utils/class-helper";
 
-const lexend = Lexend({ subsets: ["latin"], weight: "300" });
+const urbanist = Urbanist({ subsets: ["latin"], weight: "500" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(lexend.className, "container mx-auto")}>
+      <body className={cn(urbanist.className, "container mx-auto")}>
         {children}
       </body>
     </html>
