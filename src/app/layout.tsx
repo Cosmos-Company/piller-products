@@ -3,7 +3,10 @@ import { Urbanist } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/utils/class-helper";
 
-const urbanist = Urbanist({ subsets: ["latin"], weight: "500" });
+const urbanist = Urbanist({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",

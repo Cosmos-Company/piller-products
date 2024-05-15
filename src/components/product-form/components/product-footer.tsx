@@ -35,7 +35,7 @@ export default function ProductFooter() {
     if (typeof window !== "undefined") {
       setFormContainer(document.getElementById("product-form"));
     }
-  }, [document]);
+  }, [window]);
 
   return (
     <div className="erc-product-footer ">
