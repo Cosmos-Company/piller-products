@@ -1,13 +1,13 @@
 const photos = [
   {
-    url: "/images/pano/pano1.png",
+    url: "/images/pano/pano2.png",
     alt: "monofaze",
     group: "monofaze",
     order: 1,
     id: 1,
   },
   {
-    url: "/images/pano/pano2.png",
+    url: "/images/pano/pano1.png",
     alt: "trifaze",
     group: "trifaze",
     order: 2,
