@@ -58,7 +58,18 @@ export default function EVChargerPage() {
       </ProductForm>
 
       <div className="flex  justify-center">
-        <ProductDescription info={evCharger.info} className="" />
+        <ProductDescription>
+          <p>
+            Piller Home Charger, bireysel kullanıma yönelik olarak tasarlanmış,
+            AC Tip2 şarj soketine sahip şarj ünitesidir. Ev, iş yerleri,
+            otoparklar, oteller vb. iç ve dış mekanlarda kullanıma uygun şekilde
+            tasarlanmıştır.
+          </p>
+          <img
+            className=" min-w-full"
+            src="https://piller.com.tr/wp-content/uploads/2024/05/teknik-bilgi-chart-1-768x641.png"
+          />
+        </ProductDescription>
       </div>
     </>
   );
