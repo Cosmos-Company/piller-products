@@ -36,7 +36,7 @@ export default function ProductForm({
     //   body: JSON.stringify(data),
     // });
 
-    let formData = [];
+    let formData: any = [];
     for (let property in data) {
       const encodedKey = encodeURIComponent(property);
       const encodedValue = encodeURIComponent(data[property]);
